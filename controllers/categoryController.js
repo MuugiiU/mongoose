@@ -68,7 +68,7 @@ const updateCategory = async (req, res) => {
   }
 };
 
-const deletCategory = async (req, res) => {
+const deleteCategory = async (req, res) => {
   const { id } = req.params;
   if (!id) {
     res.status(400).json({ message: `${id} -тэй категори олдсонгүй` });
@@ -88,5 +88,5 @@ module.exports = {
   getAllCategories,
   getCategory,
   updateCategory,
-  deletCategory,
+  deleteCategory,
 };
