@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 
 const connectDB = async (dbUrl) => {
   try {
-    await mongoose.connect(dbUrl);
-    console.log("MongoDB-tei connections");
+    const db = await mongoose.connect(dbUrl);
+    console.log(`MongoDB-тэй холбогдлоо ${db.connection.host}`.magenta);
   } catch (err) {
-    console.log("MongoDB-tei holbogdoh ued aldaa garlaa", err);
+    console.log("MongoDB-тэй холбогдох үед алдаа гарлаа:", err);
   }
 };
 module.exports = connectDB;
