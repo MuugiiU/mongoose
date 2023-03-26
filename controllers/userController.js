@@ -23,7 +23,6 @@ const createUser = async (req, res, next) => {
         .status(400)
         .json({ message: "Нэр,имэйл эсвэл нууц үг байхгүй байна." });
     }
-
     const user = await User.create({
       name,
       email,
