@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    name: String,
+    name: {
+         type: String,
+         required:[true, "hereglegchiin neriig zaaval shaardana"]
+    },
+    profileImg:String,
     email: {
         type: String,
         unique: true,
+
     },
     password: String,
     role:{
@@ -12,7 +17,11 @@ const UserSchema = new mongoose.Schema({
         enum:["User","Admin"],
         default:"User"
     },
-    phone:Number
+    phone:String,
+    createdAt:{
+        type:Date,
+        default:Date.now()
+    }
 })
 
 const user = mongoose.model("User", UserSchema,"users");
