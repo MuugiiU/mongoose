@@ -93,6 +93,7 @@ const login = async (req, res, next) => {
       res.status(400).json({ message: `Имэйл эсвэл нууц үг буруу байна` });
     }
     const checkPass = bcrypt.compareSync(req.body.password, user.password);
+    console.log(checkPass);
     if (!checkPass) {
       res.status(400).json({ message: `Имэйл эсвэл нууц үг буруу байна` });
     }
@@ -115,6 +116,7 @@ const login = async (req, res, next) => {
 
 const register = async (req, res, next) => {
   const { name, email, password, phone } = req.body;
+  console.log(req.body);
   try {
     const hashedPassword = bcrypt.hashSync(password, 10);
     const user = await User.create({

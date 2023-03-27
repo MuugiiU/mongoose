@@ -3,9 +3,10 @@ const Category = require("../model/Category");
 
 const getAllCategories = async (req, res) => {
   try {
-    const categories = Category.find({});
+    const categories = await Category.find();
+    console.log("=====>>>>>>>", categories);
     res.status(200).json({ message: "Бүх категори олдлоо", categories });
-  } catch (err) {
+  } catch (error) {
     res.status(400).json({
       message: "Категорийн мэдээллийг авахад алдаа гарлаа",
       error: error.message,
@@ -27,7 +28,7 @@ const createCategory = async (req, res, next) => {
       categoryRating,
     });
     res.status(201).json({ message: "Амжилттай бүртгэгдлээ", category });
-  } catch (err) {
+  } catch (error) {
     // res
     //   .status(400)
     //   .json({ message: "category amjiltgui bolloo", error: error.message });
