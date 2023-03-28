@@ -20,6 +20,7 @@ const createCategory = async (req, res, next) => {
   if (!title || !description || !categoryImg || !categoryRating) {
     res.status(400).json({ message: "title, des, img,rating bhgui bn" });
   }
+
   try {
     const category = await Category.create({
       title,
