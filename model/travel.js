@@ -5,22 +5,23 @@ const travelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
+
+  imgUTL: {
+    type: String,
+  },
+  price: String,
+  day: String,
+  location: String,
+  viewer: {
     type: String,
     maxlength: [500, "Тайлбар хамгийн ихдээ 500 тэмдэгтээс ихгүй байна"],
   },
-  travelImg: {
-    type: String,
-  },
-  travelPrice: Number,
-  travelDay: Number,
-  travelLocation: String,
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
   },
 });
 
-const travel = mongoose.model("travel", travelSchema);
+const Travel = mongoose.model("Travel", travelSchema);
 
-module.exports = travel;
+module.exports = Travel;

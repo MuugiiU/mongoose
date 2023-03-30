@@ -65,7 +65,7 @@ const updateCategory = async (req, res) => {
       new: true,
     });
     res.status(200).json({ message: `${id} тэй категори шинэчлэгдлээ` });
-  } catch (err) {
+  } catch (error) {
     res.status(400).json({ message: "Алдаа", error: error.message });
   }
 };
@@ -76,12 +76,12 @@ const deleteCategory = async (req, res) => {
     res.status(400).json({ message: `${id} -тэй категори олдсонгүй` });
   }
   try {
-    const category = await Category.findByIdDelete(id);
+    const category = await Category.findByIdAndDelete(id);
     res
       .status(200)
       .json({ message: `${id} -тэй хэрэглэгч устгагдлаа`, category });
   } catch (err) {
-    res.status(400).json({ message: "алдаа", error: error.message });
+    res.status(400).json({ message: "алдаа", error: err.message });
   }
 };
 
